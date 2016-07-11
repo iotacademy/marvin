@@ -3,8 +3,6 @@
   Turns on an LED on for one second, then off for one second, repeatedly.
 
   !!!!Adapted from Arduino example code 
-  ****Adjustments****
-  --> None
  */
 
 
@@ -13,7 +11,7 @@ void setup() {
   // initialize digital pin 13 as an output.
   pinMode(13, OUTPUT);
   Serial.begin(57600);
-  Serial.println("Hallo");
+  Serial.println("Starting program");
 }
 
 // the loop function runs over and over again forever
@@ -22,5 +20,5 @@ void loop() {
   delay(1000);              // wait for a second
   digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
   delay(1000);              // wait for a second
-  Serial.println("Hallo");
+  Serial.println("Hello World!");
 }
