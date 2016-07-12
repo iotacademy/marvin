@@ -35,6 +35,7 @@ void setup() {
 void loop() {
 
   send_LoRa_data(set_port, "1337");
+  delay(1000);
   blinky();
   delay(300000);
   read_data_from_LoRa_Mod();
