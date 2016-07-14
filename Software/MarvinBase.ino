@@ -6,16 +6,20 @@ Basic controls of IoT Academy Marvin LoRa Development board.
 This version supports:
 	- Sending LoRa uplink messages using ABP 
 	- Blink three times when sending data
+  - Power control to RN2483 module
 
 Instructions:
+	- Get the latest version of the Arduino software
 	- In Arduino IDE select Arduino Leonardo and com port of your device
-	- Please adjust ABP-key parameters below to match yours
-	- Adjust input of send_lora_data() in void loop() to send your own data
+	- Please adjust ABP adresses and key below to match yours
+	- The loop() is where the actual stuff happens. Adjust input of send_lora_data() in void loop() to send your own data.
 */
 
+// Some standard ports that depend on the layout of the Marvin
 int     defaultBaudRate = 57600;
 int     set_port  = 1;
 int     reset_port = 5;
+int     RN2483_power_port = 6; //Note that an earlier version of the Marvin doesn't support seperate power to RN2483
 
 //*** Set parameters here BEGIN ---->
 String  set_nwkskey = "00000000000000000000000000000000";
@@ -24,11 +28,15 @@ String  set_devaddr = "00000000";
 //*** <---- END Set parameters here
 
 
-
+/*
+ * Setup() function is called when board is started. Marvin uses a serial connection to talk to your pc and a serial
+ * connection to talk to the RN2483, these are both initialized in seperate functions. Also some Arduino port are 
+ * initialized and a LED is called to blink when everything is done. 
+ */
 void setup() {
   InitializeSerials(defaultBaudRate);
-  initializeRN2483(reset_port);
-  pinMode(13, OUTPUT);
+  initializeRN2483(RN2483_power_port, reset_port);
+  pinMode(13, OUTPUT); // Initialize LED port  
   blinky();
 }
 
@@ -45,11 +53,18 @@ void InitializeSerials(int baudrate)
 {
   Serial.begin(57600);
   Serial1.begin(57600);
+  delay(1000);
   print_to_console("Serial ports initialised");
 }
 
-void initializeRN2483(int rst_port)
+void initializeRN2483(int pwr_port, int rst_port)
 {
+  //Enable power to the RN2483
+  pinMode(pwr_port, OUTPUT);
+  digitalWrite(pwr_port, HIGH);
+  print_to_console("RN2483 Powered up");
+  delay(1000);
+  
   //Disable reset pin
   pinMode(rst_port, OUTPUT);
   digitalWrite(rst_port, HIGH);
@@ -102,7 +117,7 @@ void read_data_from_LoRa_Mod()
 
 void send_LoRa_Command(String cmd)
 {
-  Serial.println("Now sending: " + cmd);
+  print_to_console("Now sending: " + cmd);
   Serial1.println(cmd);
   delay(500);
 }
