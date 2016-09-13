@@ -48,7 +48,7 @@ void loop() {
   blinky();
   delay(1000);
   read_data_from_LoRa_Mod();
-  delay(30000);
+  delay(60000);
 }
 
 void InitializeSerials(int baudrate)
