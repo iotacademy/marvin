@@ -37,6 +37,8 @@ The full size USB plug and the micro USB are linked directly together. The full 
 ##Dimensions
 The overal dimensions of the PCB are 85x35mm and the pcb is 2.4mm thick. This thickness is required to make the PCB fit the usb port.
 
+![Dimensions](https://raw.github.com/iotacademy/marvin/master/Hardware/Pictures/Dimensions.JPG)
+
 ##BOM
 algemene keuzes
 
