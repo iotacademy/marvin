@@ -7,8 +7,10 @@ The Marvin consists of 4 main features: A USB port, Arduino compatible microcont
 ##Grove connectors
 The 5 grove connectors cover all analog(x2), digital(x2) and I2C(x1). 
 
+![Grove connectors](https://raw.github.com/iotacademy/marvin/master/Hardware/Pictures/Grove.JPG)
+
 ##ISP
-The 2x3 male header is used to burn the bootloader on the microcontroller. As this is done via SPI, this bus is available for other SPI peripherals.
+The 2x3 male header is used to burn the bootloader on the microcontroller. As this is done via SPI, this bus is available for other SPI peripherals. On the bottom there are an additional 6 contact pads using pogo pins instead of a 2x3 wired connector.
 
 ##Serial
 The RX/TX pins from the microcontroller are available via an unpopulated connection. The LoRa modem is controlled over the same line, so it needs to be shut down when other UART devices are used to prevent errors.
