@@ -4,6 +4,8 @@
 
 Hello there! Cool of you to made your way here! The whole Marvin team is very excited and welcomes everyone (including you!) to join us in developing awesome/funny/usefull/insightfull or complete bonkers useless gadgets in the world of IoT.
 
+![Marvin](https://raw.github.com/iotacademy/marvin/master/Hardware/Pictures/Marvin_white.JPG)
+
 ##About Marvin
 
 Please check our [Kickstarter campaign](https://www.kickstarter.com/projects/688158475/) and the information page of the [IoTAcademy](http://iotacademy.nl) and [RDM Makerspace](http://www.rdmmakerspace.nl/cursussen/internet-of-things).
