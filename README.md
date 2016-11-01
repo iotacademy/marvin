@@ -4,7 +4,7 @@
 
 Hello there! Cool of you to made your way here! The whole Marvin team is very excited and welcomes everyone (including you!) to join us in developing awesome/funny/usefull/insightfull or complete bonkers useless gadgets in the world of IoT.
 
-![Marvin](https://raw.github.com/iotacademy/marvin/master/Hardware/Pictures/Marvin_white.JPG)
+![Marvin](https://raw.github.com/iotacademy/marvin/master/Hardware/Pictures/Marvin_white.jpg)
 
 ##About Marvin
 
