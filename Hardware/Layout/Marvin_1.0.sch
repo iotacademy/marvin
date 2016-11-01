@@ -15998,10 +15998,6 @@ Please send any comments to: &lt;a href="mailto:messi@users.sourceforge.net"&gt;
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
-<part name="GND14" library="supply1" deviceset="GND" device=""/>
-<part name="GND15" library="supply1" deviceset="GND" device=""/>
-<part name="GND16" library="supply1" deviceset="GND" device=""/>
-<part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
@@ -16139,11 +16135,7 @@ Please send any comments to: &lt;a href="mailto:messi@users.sourceforge.net"&gt;
 <instance part="GND10" gate="1" x="274.32" y="264.16" rot="R90"/>
 <instance part="GND11" gate="1" x="274.32" y="271.78" rot="R90"/>
 <instance part="GND12" gate="1" x="274.32" y="294.64" rot="R90"/>
-<instance part="GND13" gate="1" x="254" y="314.96" rot="R180"/>
-<instance part="GND14" gate="1" x="251.46" y="314.96" rot="R180"/>
-<instance part="GND15" gate="1" x="246.38" y="314.96" rot="R180"/>
-<instance part="GND16" gate="1" x="241.3" y="314.96" rot="R180"/>
-<instance part="GND17" gate="1" x="238.76" y="314.96" rot="R180"/>
+<instance part="GND13" gate="1" x="256.54" y="312.42" rot="R90"/>
 <instance part="GND18" gate="1" x="218.44" y="294.64" rot="R270"/>
 <instance part="GND19" gate="1" x="218.44" y="281.94" rot="R270"/>
 <instance part="+3V3" gate="G$1" x="210.82" y="281.94"/>
@@ -16460,24 +16452,21 @@ Please send any comments to: &lt;a href="mailto:messi@users.sourceforge.net"&gt;
 <pinref part="GND12" gate="1" pin="GND"/>
 </segment>
 <segment>
+<pinref part="U$1" gate="G$1" pin="GND27"/>
+<pinref part="U$1" gate="G$1" pin="GND26"/>
+<wire x1="238.76" y1="312.42" x2="241.3" y2="312.42" width="0.1524" layer="91"/>
+<junction x="241.3" y="312.42"/>
+<pinref part="U$1" gate="G$1" pin="GND24"/>
+<wire x1="241.3" y1="312.42" x2="246.38" y2="312.42" width="0.1524" layer="91"/>
+<junction x="246.38" y="312.42"/>
+<pinref part="U$1" gate="G$1" pin="GND22"/>
+<wire x1="246.38" y1="312.42" x2="251.46" y2="312.42" width="0.1524" layer="91"/>
+<junction x="251.46" y="312.42"/>
 <pinref part="U$1" gate="G$1" pin="GND21"/>
 <pinref part="GND13" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="U$1" gate="G$1" pin="GND22"/>
-<pinref part="GND14" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="U$1" gate="G$1" pin="GND24"/>
-<pinref part="GND15" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="U$1" gate="G$1" pin="GND26"/>
-<pinref part="GND16" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="U$1" gate="G$1" pin="GND27"/>
-<pinref part="GND17" gate="1" pin="GND"/>
+<wire x1="251.46" y1="312.42" x2="254" y2="312.42" width="0.1524" layer="91"/>
+<junction x="254" y="312.42"/>
+<junction x="238.76" y="312.42"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="GND28"/>
@@ -16931,13 +16920,14 @@ Please send any comments to: &lt;a href="mailto:messi@users.sourceforge.net"&gt;
 <pinref part="IC1" gate="G$1" pin="OUT"/>
 </segment>
 </net>
-<net name="N$5" class="0">
+<net name="L_ON" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="(ICP3/CLK0/OC4A)PC7"/>
 <wire x1="210.82" y1="81.28" x2="193.04" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="193.04" y1="81.28" x2="193.04" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="193.04" y1="68.58" x2="157.48" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="+IN"/>
+<label x="170.18" y="68.58" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A4" class="0">
@@ -17024,7 +17014,7 @@ Please send any comments to: &lt;a href="mailto:messi@users.sourceforge.net"&gt;
 <label x="254" y="157.48" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$6" class="0">
+<net name="POWERLED" class="0">
 <segment>
 <pinref part="U5" gate="A" pin="~SHDN"/>
 <wire x1="228.6" y1="25.4" x2="210.82" y2="25.4" width="0.1524" layer="91"/>
@@ -17034,6 +17024,7 @@ Please send any comments to: &lt;a href="mailto:messi@users.sourceforge.net"&gt;
 <wire x1="193.04" y1="53.34" x2="157.48" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="1"/>
 <junction x="210.82" y="25.4"/>
+<label x="170.18" y="53.34" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$7" class="0">
