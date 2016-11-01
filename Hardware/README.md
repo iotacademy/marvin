@@ -45,4 +45,4 @@ The overal dimensions of the PCB are 85x30mm and the pcb is 2.4mm thick. This th
 ![Dimensions](https://raw.github.com/iotacademy/marvin/master/Hardware/Pictures/Dimensions.JPG)
 
 ##Board and Schematics
-See Layout folder
+See Layout folder.
