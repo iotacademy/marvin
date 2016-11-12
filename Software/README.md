@@ -23,6 +23,8 @@ Click upload to send the software to the Marvin. If all went well it will say Up
 
 ![Board selection](https://raw.github.com/iotacademy/marvin/master/Software/Pictures/Blinky.jpg)
 
+![Upload sketch](https://raw.github.com/iotacademy/marvin/master/Software/Pictures/upload.jpg)
+
 ### Check RN2483
 
 ## Using your first sensor
