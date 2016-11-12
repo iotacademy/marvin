@@ -7,7 +7,7 @@ Essentials for Marvin LoRa Development
 
 Download the [Arduino IDE](https://www.arduino.cc/en/Main/Software) and follow the installer. 
 
-If you want to donate to Arduino -to help developing their software we are thanksfully using- this is possible, but not mandatory.
+If you want to donate to Arduino -to help developing their software we are thankfully using- this is possible, but not mandatory.
 
 ### Connect Marvin to computer
 
@@ -21,7 +21,7 @@ From the 'Tools' menu select 'Arduino Leonardo' in the 'Boards' section.
 
 Click upload to send the software to the Marvin. If all went well it will say Uploading complete and the second LED will blink, if not try uploading again.
 
-PICTUREOFBOARDSELECTION
+![Board selection](https://raw.github.com/iotacademy/marvin/master/Software/Pictures/Blinky.jpg)
 
 ### Check RN2483
 
