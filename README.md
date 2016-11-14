@@ -10,7 +10,7 @@ Hello there! Cool of you to made your way here! The whole Marvin team is very ex
 
 Marvin is easy to use, Arduino based, plug and play grove sensor compatible and works with LoRa communication on the KPN nation covering LoRa network.
 
-Please check our [Kickstarter campaign](https://www.kickstarter.com/projects/688158475/), the possibilities at the [IoTAcademy](http://iotacademy.nl) and the [RDM Makerspace](http://www.rdmmakerspace.nl/cursussen/internet-of-things).
+Please check our [Kickstarter campaign](https://www.kickstarter.com/projects/688158475/marvin-the-lora-development-board/), the possibilities at the [IoTAcademy](http://iotacademy.nl) and the [RDM Makerspace](http://www.rdmmakerspace.nl/cursussen/internet-of-things).
 
 ##What are you doing here?!
 
