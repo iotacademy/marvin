@@ -43,7 +43,7 @@ Possible other commands can be find in the module [data sheet](http://ww1.microc
 
 ## Using your first sensor
 
-![Plugged in](https://raw.github.com/iotacademy/marvin/master/Software/Pictures/Plugged.jpg)
+The Marvin uses Grove sensors. Grove is a standard developed by [Seeedstudio](https://www.seeedstudio.com/category/Grove-c-45.html), a large electronics shop. In their [wiki page](http://wiki.seeedstudio.com/wiki/Main_Page) you can find a quite comprehensive collection of documentation of all products.
 
 ### Sensor and connector
 
