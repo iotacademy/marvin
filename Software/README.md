@@ -47,19 +47,32 @@ The Marvin uses Grove sensors. Grove is a standard developed by [Seeedstudio](ht
 
 ### Sensor and connector
 
+The pinout of the Marvin allows for 3 analog sensors, 1 digital and 1 I2C sensor (I2C can also be used as regular digital port). If needed, with a splitter up to 256 I2C can be hooked up though.
+
 ![Pinout](https://raw.github.com/iotacademy/marvin/master/Software/Pictures/Pinout.jpg)
-
-### Digital sensors
-
-### Analog sensors
-
-### Libraries for I2C sensors
 
 ## Sending message to other Marvin
 
-### Broadcasting
+Upload MarvinMultiSerial to two Marvins
 
 ### Listening
+
+On the first Marvin, open serial monitor and type:
+```
+mac pause 
+radio rx 0
+```
+This will put it in continous listening mode. If it says 'radio_err' it is timed out or received something weird. No worries, just repeat 'radio rx 0' command to restart it.
+
+### Broadcasting
+
+On the second Marvin type:
+```
+mac pause
+radio set pwr 14
+radio tx 12345678
+```
+On the serial monitor of Marvin 1 it should display your message '12345678'.
 
 ## Connecting to KPN LoRa network
 

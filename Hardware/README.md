@@ -9,7 +9,7 @@ The Marvin consists of 4 main features: A USB port, Arduino compatible microcont
 ![ATMEGA32u4](https://raw.github.com/iotacademy/marvin/master/Hardware/Pictures/ATMEGA32u4.JPG)
 
 ##Grove connectors
-The 5 grove connectors cover all analog(x2), digital(x2) and I2C(x1). 
+The 5 grove connectors cover all analog(x3), digital(x1) and I2C(x1). The I2C port can also be used as a digital input/output.
 
 ![Grove connectors](https://raw.github.com/iotacademy/marvin/master/Hardware/Pictures/Grove.JPG)
 
