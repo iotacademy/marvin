@@ -13,9 +13,11 @@ If you want to donate to Arduino -to help developing their software we are thank
 
 Use your left or right (or a combination) hand to push the Marvin in the USB port of your computer. Your computer will quickly befriend it and say "blingBLING", which is computer language for "we are now BFFs!".
 
+![Plugged in](https://raw.github.com/iotacademy/marvin/master/Software/Pictures/Plugged.jpg)
+
 ### Upload Blinky
 
-Download [Blinky.ino](https://github.com/iotacademy/marvin/blob/master/Software/MarvinBlink/MarvinBlink.ino) and open it in the Arduino IDE.
+Download (or copy-paste the contents of) [Blinky.ino](https://github.com/iotacademy/marvin/blob/master/Software/MarvinBlink/MarvinBlink.ino) and open it in the Arduino IDE.
 
 From the 'Tools' menu select 'Arduino Leonardo' in the 'Boards' section.
 
@@ -41,7 +43,11 @@ Possible other commands can be find in the module [data sheet](http://ww1.microc
 
 ## Using your first sensor
 
+![Plugged in](https://raw.github.com/iotacademy/marvin/master/Software/Pictures/Plugged.jpg)
+
 ### Sensor and connector
+
+![Pinout](https://raw.github.com/iotacademy/marvin/master/Software/Pictures/Pinout.jpg)
 
 ### Digital sensors
 
