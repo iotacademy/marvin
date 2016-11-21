@@ -73,9 +73,3 @@ radio set pwr 14
 radio tx 12345678
 ```
 On the serial monitor of Marvin 1 it should display your message '12345678'.
-
-## Connecting to KPN LoRa network
-
-## Connecting to The Things Network
-
-## Power management
