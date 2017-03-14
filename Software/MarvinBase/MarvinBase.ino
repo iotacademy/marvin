@@ -29,6 +29,11 @@ String  set_appskey = "00000000000000000000000000000000";
 String  set_devaddr = "00000000";
 //*** <---- END Set parameters here
 
+#include <math.h>
+
+const int B=4275;                 // B value of the thermistor
+const int R0 = 100000;            // R0 = 100k
+const int pinTempSensor = A3;     // Grove - Temperature Sensor connect to A5
 
 /*
  * Setup() function is called when board is started. Marvin uses a serial connection to talk to your pc and a serial
@@ -36,6 +41,8 @@ String  set_devaddr = "00000000";
  * initialized and a LED is called to blink when everything is done. 
  */
 void setup() {
+  Serial.begin(defaultBaudRate);
+  Serial1.begin(defaultBaudRate);
   InitializeSerials(defaultBaudRate);
   initializeRN2483(RN2483_power_port, reset_port);
   pinMode(led_port, OUTPUT); // Initialize LED port  
@@ -44,17 +51,28 @@ void setup() {
 
 void loop() {
 
-  send_LoRa_data(set_port, "1337");
+   int a = analogRead(pinTempSensor);
+
+    float R = 1023.0/((float)a)-1.0;
+    R = 100000.0*R;
+
+    float temperature=1.0/(log(R/100000.0)/B+1/298.15)-273.15;//convert to temperature via datasheet ;
+
+    int temp = (int)temperature;
+    Serial.print("temperature = ");
+    Serial.println(temperature);
+
+    delay(100);
+    
+  send_LoRa_data(set_port, String(temp));
   blinky();
   delay(1000);
   read_data_from_LoRa_Mod();
-  delay(60000);
+  delay(10000);
 }
 
 void InitializeSerials(int baudrate)
 {
-  Serial.begin(defaultBaudRate);
-  Serial1.begin(defaultBaudRate);
   delay(1000);
   print_to_console("Serial ports initialised");
 }
