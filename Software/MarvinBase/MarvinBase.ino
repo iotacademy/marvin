@@ -29,11 +29,10 @@ String  set_appskey = "00000000000000000000000000000000";
 String  set_devaddr = "00000000";
 //*** <---- END Set parameters here
 
+//*** Some variables for the Grove temperature sensor v1.2
 #include <math.h>
-
 const int B=4275;                 // B value of the thermistor
 const int R0 = 100000;            // R0 = 100k
-const int pinTempSensor = A3;     // Grove - Temperature Sensor connect to A5
 
 /*
  * Setup() function is called when board is started. Marvin uses a serial connection to talk to your pc and a serial
@@ -56,9 +55,9 @@ void loop() {
     float R = 1023.0/((float)a)-1.0;
     R = 100000.0*R;
 
-    float temperature=1.0/(log(R/100000.0)/B+1/298.15)-273.15;//convert to temperature via datasheet ;
+    float temperature=1.0/(log(R/100000.0)/B+1/298.15)-273.15;   //convert to temperature via datasheet ;
 
-    int temp = (int)temperature;
+    int temp = (int)temperature;  //We cast the float value to an integer because the format for the RN2483 is Hexadecimal, meaning the . character is not included. You can also multiply the temperature by 100 to send the decimals in the payload
     Serial.print("temperature = ");
     Serial.println(temperature);
 
@@ -68,7 +67,7 @@ void loop() {
   blinky();
   delay(1000);
   read_data_from_LoRa_Mod();
-  delay(10000);
+  delay(30000);
 }
 
 void InitializeSerials(int baudrate)
