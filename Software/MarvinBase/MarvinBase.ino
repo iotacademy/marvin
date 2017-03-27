@@ -33,6 +33,7 @@ String  set_devaddr = "00000000";
 #include <math.h>
 const int B=4275;                 // B value of the thermistor
 const int R0 = 100000;            // R0 = 100k
+const int pinTempSensor = A3;     // Grove - Temperature Sensor connect to A3 - This is the port closest to the USB port of Marvin
 
 /*
  * Setup() function is called when board is started. Marvin uses a serial connection to talk to your pc and a serial
