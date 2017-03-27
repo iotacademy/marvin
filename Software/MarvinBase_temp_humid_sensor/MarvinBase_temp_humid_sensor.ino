@@ -76,7 +76,7 @@ void loop() {
     }
   int temp = (int) h;
   int hum = (int) t;  
-  send_LoRa_data(set_port, String(temp) + String(temp));
+  send_LoRa_data(set_port, String(temp) + "F" + String(hum)); // use "F" as delimited between temp en hum value so you can split again
   blinky();
   delay(1000);
   read_data_from_LoRa_Mod();
