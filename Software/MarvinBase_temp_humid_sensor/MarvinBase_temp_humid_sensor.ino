@@ -30,11 +30,12 @@ String  set_devaddr = "00000000";
 //*** <---- END Set parameters here
 
 //** Set thigs right for the Grove temperature / humidity sensor
-#include "DHT.h"
-
+#include "DHT.h"      //download it here: https://github.com/Seeed-Studio/Grove_Temperature_And_Humidity_Sensor
+                      // press clone/download and then download as .zip
+                      
 #define DHTPIN A3     // A3 is closes to the usb port of Marvin
 
-// Uncomment whatever type you're using!
+// define the type of sensor used (there are others)
 #define DHTTYPE DHT11   // DHT 11 
 
 DHT dht(DHTPIN, DHTTYPE);
