@@ -29,7 +29,7 @@ String  set_appskey = "00000000000000000000000000000000";
 String  set_devaddr = "00000000";
 //*** <---- END Set parameters here
 
-//*** Some variables for the Grove temperature sensor v1.2
+//*** Some variables for the Grove temperature sensor v1.2 : http://wiki.seeed.cc/Grove-Temperature_Sensor_V1.2/
 #include <math.h>
 const int B=4275;                 // B value of the thermistor
 const int R0 = 100000;            // R0 = 100k
