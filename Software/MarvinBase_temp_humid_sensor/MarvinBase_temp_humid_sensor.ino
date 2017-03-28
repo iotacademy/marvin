@@ -79,8 +79,8 @@ void loop() {
   int tempdec = t * 100;
   int humdec = h * 100;
   
-  send_LoRa_data(set_port, String(temp) + String(humdec));      //send temp / hum as rounded int over lora
-  //send_LoRa_data(set_port, String(tempdec) + String(humdec)); //send temp / hum as 4 digit integer (decimals included)
+  send_LoRa_data(set_port, String(temp) + "F" + String(hum));      //send temp / hum as rounded int over lora
+  //send_LoRa_data(set_port, String(tempdec) + "F" + String(humdec)); //send temp / hum as 4 digit integer (decimals included)
 
   blinky();
   delay(1000);
