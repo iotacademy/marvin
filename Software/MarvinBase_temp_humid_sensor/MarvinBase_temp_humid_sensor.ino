@@ -76,7 +76,12 @@ void loop() {
     }
   int temp = (int) h;
   int hum = (int) t;  
-  send_LoRa_data(set_port, String(temp) + "F" + String(hum)); // use "F" as delimited between temp en hum value so you can split again
+  int tempdec = t * 100;
+  int humdec = h * 100;
+  
+  send_LoRa_data(set_port, String(temp) + String(humdec));      //send temp / hum as rounded int over lora
+  //send_LoRa_data(set_port, String(tempdec) + String(humdec)); //send temp / hum as 4 digit integer (decimals included)
+
   blinky();
   delay(1000);
   read_data_from_LoRa_Mod();
