@@ -29,11 +29,16 @@ String  set_appskey = "00000000000000000000000000000000";
 String  set_devaddr = "00000000";
 //*** <---- END Set parameters here
 
-//*** Some variables for the Grove temperature sensor v1.2 : http://wiki.seeed.cc/Grove-Temperature_Sensor_V1.2/
-#include <math.h>
-const int B=4275;                 // B value of the thermistor
-const int R0 = 100000;            // R0 = 100k
-const int pinTempSensor = A3;     // Grove - Temperature Sensor connect to A3 - This is the port closest to the USB port of Marvin
+//** Set thigs right for the Grove temperature / humidity sensor
+#include "DHT.h"      //download it here: https://github.com/Seeed-Studio/Grove_Temperature_And_Humidity_Sensor
+                      // press clone/download and then download as .zip
+                      
+#define DHTPIN A3     // A3 is closes to the usb port of Marvin
+
+// define the type of sensor used (there are others)
+#define DHTTYPE DHT11   // DHT 11 
+
+DHT dht(DHTPIN, DHTTYPE);
 
 /*
  * Setup() function is called when board is started. Marvin uses a serial connection to talk to your pc and a serial
@@ -41,30 +46,42 @@ const int pinTempSensor = A3;     // Grove - Temperature Sensor connect to A3 - 
  * initialized and a LED is called to blink when everything is done. 
  */
 void setup() {
+
   Serial.begin(defaultBaudRate);
   Serial1.begin(defaultBaudRate);
   InitializeSerials(defaultBaudRate);
   initializeRN2483(RN2483_power_port, reset_port);
   pinMode(led_port, OUTPUT); // Initialize LED port  
+  dht.begin();
   blinky();
 }
 
 void loop() {
+    float h = dht.readHumidity();
+    float t = dht.readTemperature();
 
-   int a = analogRead(pinTempSensor);
+    // check if returns are valid, if they are NaN (not a number) then something went wrong!
+    if (isnan(t) || isnan(h)) 
+    {
+        Serial.println("Failed to read from DHT");
+    } 
+    else 
+    {
+        Serial.print("Humidity: "); 
+        Serial.print(h);
+        Serial.print(" %\t");
+        Serial.print("Temperature: "); 
+        Serial.print(t);
+        Serial.println(" *C");
+    }
+  int temp = (int) h;
+  int hum = (int) t;  
+  int tempdec = t * 100;
+  int humdec = h * 100;
+  
+  send_LoRa_data(set_port, String(temp) + "F" + String(hum));      //send temp / hum as rounded int over lora
+  //send_LoRa_data(set_port, String(tempdec) + "F" + String(humdec)); //send temp / hum as 4 digit integer (decimals included)
 
-    float R = 1023.0/((float)a)-1.0;
-    R = 100000.0*R;
-
-    float temperature=1.0/(log(R/100000.0)/B+1/298.15)-273.15;   //convert to temperature via datasheet ;
-
-    int temp = (int)temperature;  //We cast the float value to an integer because the format for the RN2483 is Hexadecimal, meaning the . character is not included. You can also multiply the temperature by 100 to send the decimals in the payload
-    Serial.print("temperature = ");
-    Serial.println(temperature);
-
-    delay(100);
-    
-  send_LoRa_data(set_port, String(temp));
   blinky();
   delay(1000);
   read_data_from_LoRa_Mod();
