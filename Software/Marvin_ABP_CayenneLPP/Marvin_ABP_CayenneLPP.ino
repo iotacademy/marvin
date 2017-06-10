@@ -42,12 +42,13 @@ void setup() {
   digitalWrite(A3, LOW);
 }
 
+
 void loop() {
   //int buttonState = digitalRead(A3);
   //int button2State = digitalRead(A2);
 
   //if (buttonState == 1 || button2State == 1) {
-    char payload[MAX_SIZE] = "";
+    char payload[MAX_SIZE] = "50";
 
     lpp.reset();
 
