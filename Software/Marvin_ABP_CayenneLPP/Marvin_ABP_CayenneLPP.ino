@@ -159,7 +159,7 @@ void send_LoRa_Command(String cmd) {
 }
 
 void send_LoRa_data(int tx_port, String rawdata) {
-  // send_LoRa_Command("mac tx uncnf " + String(tx_port) + String(" ") + rawdata);
-  send_LoRa_Command("mac tx cnf " + String(tx_port) + String(" ") + rawdata);
+  send_LoRa_Command("mac tx uncnf " + String(tx_port) + String(" ") + rawdata);
+  //send_LoRa_Command("mac tx cnf " + String(tx_port) + String(" ") + rawdata);
 }
 
