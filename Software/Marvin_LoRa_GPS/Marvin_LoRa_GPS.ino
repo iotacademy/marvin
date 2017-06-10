@@ -1,7 +1,11 @@
 /*
-  MarvinLaptop
-
-  Basic controls of IoT Academy Marvin LoRa Development board through your Laptop
+  Marvin_LoRa_GPS
+  
+  Connect the gps using a grove - female jumper wire:
+  - GND to any GND
+  - VCC to port D3
+  - RX  to TX - located on the under edge of the board. 
+  - TX to RX 
 
   This version supports:
   - Sending LoRa uplink messages using ABP that are given as input from the serial port on your laptop
@@ -39,7 +43,7 @@ String  set_devaddr = "xxxxxxxx"; // Put your 8 hex char here
 
 // Some global items
 String reader = "";
-#include <TinyGPS++.h>
+#include <TinyGPS++.h>  //you will have to download+install the tinygps++ library, just google it, first hit.
 #include <math.h>
 TinyGPSPlus gps;
 
@@ -58,6 +62,8 @@ void setup()
 
 void loop(){
 
+// This program assumes you use a button on the A3 port. Each button press the program below will run. 
+
   if (digitalRead(buttonstate) == 1 && powerstategps == 0){
       restartRN2483(RN2483_power_port, reset_port);
       send_LoRa_Command("mac tx uncnf " + String(set_port) + String(" ") + 01);                 //send confirmation message
@@ -65,7 +71,7 @@ void loop(){
       read_data_from_LoRa_Mod();
       blinky();
       delay(1000);
-      Serial.println("You requested a tapup! Zeroing in on your location, just a sec...");      //start gps tracking
+      Serial.println("Zeroing in on your location, just a sec...");      //start gps tracking
       killRN2483(RN2483_power_port, reset_port);                                                //kill rn module for uart
       delay(100);
       digitalWrite(gps_pwr, HIGH);                                                              //start gps on port gps_pwr
@@ -93,7 +99,7 @@ void loop(){
   
         if(gps.location.isValid() == true && gps.location.isUpdated() == true){
                     digitalWrite(13, HIGH);
-/*
+
                     latti = gps.location.lat();
                     longi = gps.location.lng();        
                     uint32_t  n = latti * 1000000;
@@ -115,7 +121,7 @@ void loop(){
                     delay(1000);
                     killRN2483(RN2483_power_port, reset_port);
                     digitalWrite(led_port, LOW);
-                    */
+                    
         }
     }
 // go back to main loop again and wait for gps to become true
