@@ -10,7 +10,7 @@
   This version supports:
   - Sending LoRa uplink messages using ABP that are given as input from the serial port on your laptop
   - Blink three times when sending data
-  - Power control to RN2483 module
+  - Power control to RN2903 module
 
   Instructions:
   - Get the latest version of the Arduino software
@@ -24,7 +24,7 @@ int     set_port  = 1;
 long    defaultBaudRate = 9600;
 long    newBaudRate = 57600;
 int     reset_port = 5;
-int     RN2483_power_port = 6;
+int     RN2903_power_port = 6;
 int     led_port = 13;
 int     buttonstate = A3;
 int     gps_pwr = 3;
@@ -53,7 +53,7 @@ void setup()
   pinMode(gps_pwr, OUTPUT);
   pinMode(buttonstate, INPUT);
   digitalWrite(gps_pwr, LOW);
-  initializeRN2483(RN2483_power_port, reset_port);
+  initializeRN2903(RN2903_power_port, reset_port);
   delay(100);
   Serial.println("Hello There, Let's go!");
   pinMode(led_port, OUTPUT); // Initialize LED port
@@ -65,14 +65,14 @@ void loop(){
 // This program assumes you use a button on the A3 port. Each button press the program below will run. 
 
   if (digitalRead(buttonstate) == 1 && powerstategps == 0){
-      restartRN2483(RN2483_power_port, reset_port);
+      restartRN2903(RN2903_power_port, reset_port);
       send_LoRa_Command("mac tx uncnf " + String(set_port) + String(" ") + 01);                 //send confirmation message
       delay(1000);
       read_data_from_LoRa_Mod();
       blinky();
       delay(1000);
       Serial.println("Zeroing in on your location, just a sec...");      //start gps tracking
-      killRN2483(RN2483_power_port, reset_port);                                                //kill rn module for uart
+      killRN2903(RN2903_power_port, reset_port);                                                //kill rn module for uart
       delay(100);
       digitalWrite(gps_pwr, HIGH);                                                              //start gps on port gps_pwr
       powerstategps = 1;                                                                        //write variable to indicate gps is on
@@ -112,14 +112,14 @@ void loop(){
                     Serial.println("GPS KILLED");
                     Serial.println("sending gps now");
                     
-                    restartRN2483(RN2483_power_port, reset_port);
+                    restartRN2903(RN2903_power_port, reset_port);
                     digitalWrite(led_port, HIGH);
                     send_LoRa_Command("mac tx uncnf " + String(set_port) + String(" ") + String(n) + String(e));
                     delay(1000);
                     read_data_from_LoRa_Mod();
                     blinky();
                     delay(1000);
-                    killRN2483(RN2483_power_port, reset_port);
+                    killRN2903(RN2903_power_port, reset_port);
                     digitalWrite(led_port, LOW);
                     
         }
@@ -145,15 +145,15 @@ void InitializeSerials(long baudrate)
   print_to_console("Serial ports initialised");
 }
 
-void initializeRN2483(int pwr_port, int rst_port)
+void initializeRN2903(int pwr_port, int rst_port)
 {
-  //Enable power to the RN2483
+  //Enable power to the RN2903
   InitializeSerials(newBaudRate);
   delay(1000);
   pinMode(pwr_port, OUTPUT);
   digitalWrite(pwr_port, HIGH);
   delay(1000);
-  print_to_console("RN2483 Powered up");
+  print_to_console("RN2903 Powered up");
 
   //Disable reset pin
   pinMode(rst_port, OUTPUT);
@@ -174,7 +174,7 @@ void initializeRN2483(int pwr_port, int rst_port)
 
   //For this commands some extra delay is needed.
   send_LoRa_Command("mac set adr on");
-  //send_LoRa_Command("mac set dr 0"); //uncomment this line to fix the RN2483 on SF12 (dr=DataRate)
+  //send_LoRa_Command("mac set dr 0"); //uncomment this line to fix the RN2903 on SF12 (dr=DataRate)
   read_data_from_LoRa_Mod();
 
   send_LoRa_Command("mac save");
@@ -183,22 +183,22 @@ void initializeRN2483(int pwr_port, int rst_port)
 
 }
 
-void killRN2483(int pwr_port, int rst_port)
+void killRN2903(int pwr_port, int rst_port)
 {
-  //disable power to the RN2483
+  //disable power to the RN2903
  // pinMode(pwr_port, OUTPUT);
  // digitalWrite(pwr_port, LOW);
   //Disable reset pin
   pinMode(rst_port, OUTPUT);
   digitalWrite(rst_port, LOW);
-  print_to_console("RN2483 killed");
+  print_to_console("RN2903 killed");
   delay(1000);
   InitializeSerials(defaultBaudRate);
 }
 
-void restartRN2483(int pwr_port, int rst_port)
+void restartRN2903(int pwr_port, int rst_port)
 {
-  //Enable power to the RN2483
+  //Enable power to the RN2903
   InitializeSerials(newBaudRate);
   delay(1000);
   //Disable reset pin
@@ -207,7 +207,7 @@ void restartRN2483(int pwr_port, int rst_port)
   pinMode(pwr_port, OUTPUT);
   digitalWrite(pwr_port, HIGH);
   delay(1000);
-  print_to_console("RN2483 repowered up");
+  print_to_console("RN2903 repowered up");
   
   send_LoRa_Command("mac join abp");
   delay(1000);

@@ -52,11 +52,15 @@ void loop() {
 
     lpp.reset();
 
-    // Stub out payloads if you want.
+    // Stub out payloads if you want 
     lpp.addDigitalInput(1, 1);
     // lpp.addTemperature(12, 22.5);
     // lpp.addBarometricPressure(2, 1073.21);
     // lpp.addGPS(3, 52.37365, 4.88650, 2);
+
+//These values are hard coded. For actual Marvin sensor values 
+//define a variable with a analog/digitalRead on the pin that the sensor is on.
+//The call this valuable on the second place in the above lpp.add~ 
 
     uint8_t buff = *lpp.getBuffer();
 
@@ -74,7 +78,8 @@ void loop() {
     Serial.println(payload);
 
     send_LoRa_data(set_port, payload);
-
+    delay(500);
+    read_data_from_LoRa_Mod();
     delay(10000);
     Serial.println(count);
     count = count + 1;
