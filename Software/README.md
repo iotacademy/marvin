@@ -9,6 +9,11 @@ Download the [Arduino IDE](https://www.arduino.cc/en/Main/Software) and follow t
 
 If you want to donate to Arduino -to help developing their software we are thankfully using- this is possible, but not mandatory.
 
+### Install MarvinLib
+
+Copy the folder MarvinLib to sketchbook/libraries/
+The sketchbook folder can be found in the Arduino IDE under file->preferences->Sketchbook location:
+
 ### Connect Marvin to computer
 
 Use your left or right (or a combination) hand to push the Marvin in the USB port of your computer. Your computer will quickly befriend it and say "blingBLING", which is computer language for "we are now BFFs!".

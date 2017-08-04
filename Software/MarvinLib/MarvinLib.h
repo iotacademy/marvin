@@ -4,16 +4,16 @@
  * @date       3 August 2017
  */
 
-#ifndef _LORACOM_H_
-#define _LORACOM_H_
+#ifndef _MARVINLIB_H_
+#define _MARVINLIB_H_
 
 #include "Arduino.h"
 
 namespace marvin{
 	//*** Set parameters here BEGIN ---->
-	static const String set_nwkskey = "63bfb59aa2c118d2543539d98884e631";
-	static const String set_appskey = "a68bd28814d8587d28af3ec0d1c70d20";
-	static const String set_devaddr = "142047DB";
+	static const String set_nwkskey = "00000000000000000000000000000000";
+	static const String set_appskey = "00000000000000000000000000000000";
+	static const String set_devaddr = "00000000";
 	//*** <---- END Set parameters here
 
 	class LoRaCom{
