@@ -16,7 +16,6 @@
  *   send_lora_data() in void loop() to send your own data.
  */
 
-// .. is one folder back.
 #include <MarvinLib.h>
 
 // Port to assign the type of lora data (any port can be used between 1 and 223)

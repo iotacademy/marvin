@@ -24,6 +24,7 @@ namespace marvin{
 		 * @return     Zero on success, -1 otherwise.
 		 */
 		static int8_t initializeLoRa(){
+			powerOn();
 			if(exec_general_LoRa_command("radio set crc off") != 0){
 				return -1;
 			}
@@ -46,6 +47,25 @@ namespace marvin{
 				return -1;
 			}
 			return 0;
+		}
+		static void powerOff(){
+			//disable power to the RN2903
+			pinMode(pwr_pin, OUTPUT);
+			digitalWrite(pwr_pin, LOW);
+			//Disable reset pin
+			pinMode(rst_pin, OUTPUT);
+			digitalWrite(rst_pin, LOW);
+			print_to_console("RN2903 powered off");
+		}
+		static void powerOn(){
+			//disable power to the RN2903
+			pinMode(pwr_pin, OUTPUT);
+			digitalWrite(pwr_pin, LOW);
+			//Disable reset pin
+			pinMode(rst_pin, OUTPUT);
+			digitalWrite(rst_pin, LOW);
+			delay(100);
+			print_to_console("RN2903 powered on");
 		}
 		/**
 		 * @brief      Sends data over LoRa.
@@ -124,6 +144,8 @@ namespace marvin{
 		static void notify_user_LoRa_send(String data){
 			print_to_console("To LoRa: " + data);
 		}
+		static constexpr uint8_t rst_pin = 5;
+		static constexpr uint8_t pwr_pin = 6;
 	};
 }
 
