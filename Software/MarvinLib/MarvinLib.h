@@ -60,10 +60,10 @@ namespace marvin{
 		static void powerOn(){
 			//disable power to the RN2903
 			pinMode(pwr_pin, OUTPUT);
-			digitalWrite(pwr_pin, LOW);
+			digitalWrite(pwr_pin, HIGH);
 			//Disable reset pin
 			pinMode(rst_pin, OUTPUT);
-			digitalWrite(rst_pin, LOW);
+			digitalWrite(rst_pin, HIGH);
 			delay(100);
 			print_to_console("RN2903 powered on");
 		}
