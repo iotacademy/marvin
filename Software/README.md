@@ -4,7 +4,7 @@ Essentials for Marvin LoRa Development
 Checkout our newly developed Marvin Plug&Play app: https://dent.mendixcloud.com
 10 week free trial, afterwards free use on demand
 
-For Hookup guides see: https://dentgalaxy.com/marvin/resources-nl/
+For Hookup guides see: http://www.dentgalaxy.com/marvin/resources-nl/
 
 Enjoy!
 
