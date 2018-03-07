@@ -1,21 +1,27 @@
 /*
-  Marvin_LoRa_GPS
+  Marvin_LoRa_GPS + Button
   
   Connect the gps using a grove - female jumper wire:
   - GND to any GND
-  - VCC to port D3
-  - RX  to TX - located on the under edge of the board. 
-  - TX to RX 
+  - VCC to Collector pin of PNP transistor
+  - RX  to TX - located on the lower edge of the board. 
+  - TX to RX - locataed on the lower edge of the board.
+  
+  For the pnp transistor:
+  - Connect Collector pin to VCC GPS
+  - Connect Emitter pin to VCC from ISP header
+  - Connect gate pin to D12
 
   This version supports:
   - Sending LoRa uplink messages using ABP that are given as input from the serial port on your laptop
   - Blink three times when sending data
-  - Power control to RN2903 module
+  - Power control to RN2483 module
 
   Instructions:
   - Get the latest version of the Arduino software
   - In Arduino IDE select Arduino Leonardo and com port of your device
   - Please adjust ABP adresses and key below to match yours
+  - Download tinypgs++ library and import it in your arduino IDE: Sketch > Include library > add .zip library
 */
 // Port to assign the type of lora data (any port can be used between 1 and 223)
 int     set_port  = 1;
