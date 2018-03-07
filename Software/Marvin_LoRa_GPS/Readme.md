@@ -1,12 +1,15 @@
-SETUP YOUR MARVIN + GPS 
+# SETUP YOUR MARVIN + GPS 
 
-The Microchip lora module is connected over UART with the Arduino Leonardo 32u4. 
+## General
+The Microchip lora module is connected over UART with the Arduino Leonardo 32u4. Power consumption of the GPS module is around 150 mA.
 
-Uart can only handle one master and one slave device. Since GPS is also using UART communcication, you have to kill the power to the RN2483.
-Do this by writing pin 5 (power RN2483) and pin 6 (reset RN2483) LOW. 
+## Kill power to RN2483
+Uart can only handle one master and one slave device. Since GPS is also using UART communcication, you have to kill the power to the RN2483. Do this by writing pin 5 (power RN2483) and pin 6 (reset RN2483) LOW. 
 
+## Connect rx tx pins
 Next you connect rx to tx of the gps and tx to rx, using the pads provided on the lower edge of the Marvin (USB pointing to left)
 
+## Use a transistor
 To control the power to the GPS, you need an PNP transistor that has the gate connected to one of the arduino's digital pin. 
 In active mode, the GPS requires +50mA, which is more then a digital pin of the 32u4 can provide. 
 Using a PNP between the VCC of the gps and the VCC of the marvin will allow for enough power to run the gps properly. 
